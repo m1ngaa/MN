@@ -1,0 +1,67 @@
+<div class="position-relative mt-auto">
+  <div class="shape shape-bottom shape-fluid-x svg-shim text-gray-200">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>
+  </div>
+</div>
+
+{% if not hide_footer_signup %}
+<section class="pt-6 pt-md-8 bg-gray-200">
+  <div class="container pb-6 pb-md-8 border-bottom border-gray-300">
+    <div class="row align-items-center">
+      <div class="col-12 col-md">
+        <h3 class="mb-1 font-weight-bold">
+          Stay up to date!
+        </h3>
+        <p class="font-size-lg text-muted mb-6 mb-md-0">
+          From us to your inbox weekly.
+        </p>
+      </div>
+
+      <div class="col-12 col-md-5">
+        <form>
+          <div class="row">
+            <div class="col">
+              <input type="email" class="form-control" placeholder="Enter your email" id="footer-subscribe-email">
+            </div>
+
+            <div class="col-auto ml-n5">
+              <button class="btn btn-primary" type="submit" id="footer-subscribe-button">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+frappe.ready(function() {
+  $("#footer-subscribe-button").click(function() {
+
+    if($("#footer-subscribe-email").val() && validate_email($("#footer-subscribe-email").val())) {
+      $("#footer-subscribe-email").attr('disabled', true);
+      $("#footer-subscribe-button").html("Sending...")
+        .attr("disabled", true);
+      erpnext.subscribe_to_newsletter({
+        email: $("#footer-subscribe-email").val(),
+        callback: function(r) {
+          if(!r.exc) {
+            $("#footer-subscribe-button").html(__("Added"))
+              .attr("disabled", true);
+          } else {
+            $("#footer-subscribe-button").html(__("Error: Not a valid id?"))
+              .addClass("btn-danger").attr("disabled", false);
+            $("#footer-subscribe-email").val("").attr('disabled', false);
+          }
+        }
+      });
+    }
+    else
+      frappe.msgprint(frappe._("Please enter valid email address"))
+  });
+});
+</script>
+
+{% endif %}

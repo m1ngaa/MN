@@ -14,4 +14,4 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 
-base_template = "www/index.html"
+base_template = "templates/index.html"

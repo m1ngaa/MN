@@ -55,7 +55,7 @@
         "undefined" != typeof CountUp && e && [].forEach.call(e, function(e) {
             "countup:in" !== e.getAttribute("data-aos-id") && o(e)
         }), document.addEventListener("aos:in:countup:in", function(e) {
-            if(e.detail instanceof Element) o(e.detail);
+            if (e.detail instanceof Element) o(e.detail);
             else {
                 var t = document.querySelectorAll('.aos-animate[data-aos-id="countup:in"]:not(.counted)');
                 [].forEach.call(t, function(e) {
@@ -64,33 +64,33 @@
             }
         })
     }(),
-    function() {
-        var e = document.querySelectorAll(".navbar-nav .dropdown, .navbar-nav .dropright"),
-            n = ["mouseenter"],
-            a = ["mouseleave", "click"];
-        [].forEach.call(e, function(t) {
-            var o = t.querySelector(".dropdown-menu");
-            n.forEach(function(e) {
-                t.addEventListener(e, function() {
-                    ! function(e) {
-                        window.innerWidth < 992 || (e.classList.add("showing"), setTimeout(function() {
-                            e.classList.remove("showing"), e.classList.add("show")
-                        }, 1))
-                    }(o)
-                })
-            }), a.forEach(function(e) {
-                t.addEventListener(e, function(e) {
-                    ! function(e, t) {
-                        setTimeout(function() {
-                            window.innerWidth < 992 || t.classList.contains("show") && ("click" === e.type && e.target.closest(".dropdown-menu form") || (t.classList.add("showing"), t.classList.remove("show"), setTimeout(function() {
-                                t.classList.remove("showing")
-                            }, 200)))
-                        }, 2)
-                    }(e, o)
-                })
-            })
-        })
-    }(),
+    // function() {
+    //     var e = document.querySelectorAll(".navbar-nav .dropdown, .navbar-nav .dropright"),
+    //         n = ["mouseenter"],
+    //         a = ["mouseleave", "click"];
+    //     [].forEach.call(e, function(t) {
+    //         var o = t.querySelector(".dropdown-menu");
+    //         n.forEach(function(e) {
+    //             t.addEventListener(e, function() {
+    //                 ! function(e) {
+    //                     window.innerWidth < 992 || (e.classList.add("showing"), setTimeout(function() {
+    //                         e.classList.remove("showing"), e.classList.add("show")
+    //                     }, 1))
+    //                 }(o)
+    //             })
+    //         }), a.forEach(function(e) {
+    //             t.addEventListener(e, function(e) {
+    //                 ! function(e, t) {
+    //                     setTimeout(function() {
+    //                         window.innerWidth < 992 || t.classList.contains("show") && ("click" === e.type && e.target.closest(".dropdown-menu form") || (t.classList.add("showing"), t.classList.remove("show"), setTimeout(function() {
+    //                             t.classList.remove("showing")
+    //                         }, 200)))
+    //                     }, 2)
+    //                 }(e, o)
+    //             })
+    //         })
+    //     })
+    // }(),
     function() {
         var e = document.querySelectorAll("[data-dropzone]");
         "undefined" != typeof Dropzone && e && (Dropzone.autoDiscover = !1, Dropzone.thumbnailWidth = null, Dropzone.thumbnailHeight = null, [].forEach.call(e, function(e) {
@@ -183,7 +183,7 @@
         function i() {
             var e = window.innerWidth - document.documentElement.clientWidth;
             document.documentElement.style.overflow = "hidden", document.body.style.paddingRight = e + "px"
-        }[].forEach.call(e, function(t) {
+        } [].forEach.call(e, function(t) {
             o.forEach(function(e) {
                 window.addEventListener(e, function() {
                     a(t)
